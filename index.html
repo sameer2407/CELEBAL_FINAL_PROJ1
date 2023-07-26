@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #219653;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Air Quality Prediction</h1>
+        <form action="/predict" method="get">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="pm25">PM2.5:</label>
+            <input type="text" id="pm25" name="pm25" required>
+
+            <label for="pm10">PM10:</label>
+            <input type="text" id="pm10" name="pm10" required>
+
+            <label for="no">NO:</label>
+            <input type="text" id="no" name="no" required>
+
+            <label for="no2">NO2:</label>
+            <input type="text" id="no2" name="no2" required>
+
+            <label for="nox">NOX:</label>
+            <input type="text" id="nox" name="nox" required>
+
+            <label for="nh3">NH3:</label>
+            <input type="text" id="nh3" name="nh3" required>
+
+            <label for="co">CO:</label>
+            <input type="text" id="co" name="co" required>
+
+            <label for="so3">SO2:</label>
+            <input type="text" id="so3" name="so3" required>
+
+            <label for="o3">O3:</label>
+            <input type="text" id="o3" name="o3" required>
+
+            <label for="benzene">Benzene:</label>
+            <input type="text" id="benzene" name="benzene" required>
+
+            <label for="toluene">Toluene:</label>
+            <input type="text" id="toluene" name="toluene" required>
+
+            <label for="xylene">Xylene:</label>
+            <input type="text" id="xylene" name="xylene" required>
+
+            <button type="submit">Predict Air Quality Index</button>
+        </form>
+        {% if prediction_text %}
+        <div id="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
